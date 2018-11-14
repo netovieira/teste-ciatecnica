@@ -47,7 +47,7 @@ Os cadastros devem conter os seguintes campos:
 - Ao preencher o CEP implementar a busca com alguma API (de utilização gratuita e livre) para preencher os demais dados relacionados ao endereço.
 - A tela para o cadastro deverá ser única.
 - Porém, quando selecionado pessoa física deverão ser exibidos somente os campos relacionados à pessoa física, e quando selecionado pessoa jurídica deverão ser exibidos somente os campos de pessoa jurídica.
-- Disponibilizar uma API de consulta com todos os clientes cadastrados com saída JSON, via GET. 
+- Disponibilizar uma API de consulta com todos os clientes cadastrados com saída JSON, via GET. ( /api/clientes ) 
 
 
 
