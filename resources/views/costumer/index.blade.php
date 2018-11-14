@@ -6,7 +6,7 @@
             <h5 class="card-title">Cadastro de clientes</h5>
             <h6 class="card-subtitle mb-2 text-muted">Preencha o cadastro abaixo</h6>
             <hr>
-            <form id="costumerForm" class="card-text" action="{{url('cliente')}}" method="post" onchange="isValid()">
+            <form id="costumerForm" class="card-text" action="{{url('cliente')}}" method="post" onchange="validateForm()" onsubmit="validateForm()">
                 {!! csrf_field() !!}
                 <div class="form-group row">
                     <label class="col-4">Tipo de cadastro</label>
@@ -190,7 +190,8 @@
         function checkAge(elem) {
             let birthday = $(elem).val();
             let age = calculateAge(birthday);
-            if(age < 19)
+            let invalid = age < 19;
+            if(invalid)
                 alert('Infelizmente você ainda não tem idade para realizar esse cadastro! :(');
         };
 
@@ -205,8 +206,12 @@
             return age;
         }
 
-        function isValid() {
-            $('form#costumerForm button[type="submit"]').prop('disabled', !$('form#costumerForm').validate().checkForm())
+        function validateForm() {
+            let validAge = calculateAge( $('input[name="CostumerPeople[birthday]"]').val() ) >= 19;
+            console.log(validAge);
+            let FormIsValid = !$('form#costumerForm').validate().checkForm() || !validAge;
+            $('form#costumerForm button[type="submit"]').prop('disabled', FormIsValid);
+            return FormIsValid;
         }
     </script>
 @endpush
