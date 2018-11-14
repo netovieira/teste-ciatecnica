@@ -38,7 +38,7 @@ Os cadastros devem conter os seguintes campos:
 - Bairro
 - Cidade
 - UF (8 caracteres) 
-
+------
 
 
 - Todos os campos devem ser de preenchimento obrigatório, exceto o campo complemento.
